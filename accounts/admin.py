@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Account, Position, Ledger, Stock, Trade
+from .models import Account, CustomUser, Ledger, Position, Stock, Trade
 
 admin.site.register(CustomUser)
 admin.site.register(Account)

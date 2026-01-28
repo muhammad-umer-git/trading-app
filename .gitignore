@@ -13,6 +13,7 @@ __pycache__/
 .idea/
 
 .env
+.docker.env
 
 # Logs
 logs/
@@ -24,3 +25,9 @@ logs/
 *.rdb
 *.json
 *.sqlite3
+
+#local dev files
+
+celerybeat-schedule
+*.rdb
+db_backup.sqlite3

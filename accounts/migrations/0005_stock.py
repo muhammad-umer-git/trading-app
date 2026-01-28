@@ -6,18 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0004_ledger'),
+        ("accounts", "0004_ledger"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Stock',
+            name="Stock",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('symbol', models.CharField(max_length=10, unique=True)),
-                ('name', models.CharField(max_length=100)),
-                ('exchange', models.CharField(max_length=50)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("symbol", models.CharField(max_length=10, unique=True)),
+                ("name", models.CharField(max_length=100)),
+                ("exchange", models.CharField(max_length=50)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

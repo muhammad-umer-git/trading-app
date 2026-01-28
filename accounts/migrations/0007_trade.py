@@ -7,20 +7,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0006_stock_price'),
+        ("accounts", "0006_stock_price"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Trade',
+            name="Trade",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('symbol', models.CharField(max_length=10)),
-                ('transaction_type', models.CharField(choices=[('buy', 'Buy'), ('sell', 'Sell')], max_length=4)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('quantity', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('timestamp', models.DateTimeField()),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='trades', to='accounts.account')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("symbol", models.CharField(max_length=10)),
+                (
+                    "transaction_type",
+                    models.CharField(
+                        choices=[("buy", "Buy"), ("sell", "Sell")], max_length=4
+                    ),
+                ),
+                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("quantity", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("timestamp", models.DateTimeField()),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="trades",
+                        to="accounts.account",
+                    ),
+                ),
             ],
         ),
     ]

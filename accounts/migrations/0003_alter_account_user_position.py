@@ -8,24 +8,43 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0002_remove_customuser_name'),
+        ("accounts", "0002_remove_customuser_name"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='account',
-            name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='account', to=settings.AUTH_USER_MODEL),
+            model_name="account",
+            name="user",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="account",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.CreateModel(
-            name='Position',
+            name="Position",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('symbol', models.CharField(max_length=10)),
-                ('quantity', models.DecimalField(decimal_places=2, max_digits=12)),
-                ('average_price', models.DecimalField(decimal_places=2, max_digits=12)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='positions', to='accounts.account')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("symbol", models.CharField(max_length=10)),
+                ("quantity", models.DecimalField(decimal_places=2, max_digits=12)),
+                ("average_price", models.DecimalField(decimal_places=2, max_digits=12)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="positions",
+                        to="accounts.account",
+                    ),
+                ),
             ],
         ),
     ]

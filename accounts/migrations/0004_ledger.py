@@ -7,18 +7,39 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0003_alter_account_user_position'),
+        ("accounts", "0003_alter_account_user_position"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Ledger',
+            name="Ledger",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('transaction_type', models.CharField(choices=[('deposit', 'deposit'), ('withdraw', 'withdraw')], max_length=10)),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=12)),
-                ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='ledger', to='accounts.account')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "transaction_type",
+                    models.CharField(
+                        choices=[("deposit", "deposit"), ("withdraw", "withdraw")],
+                        max_length=10,
+                    ),
+                ),
+                ("amount", models.DecimalField(decimal_places=2, max_digits=12)),
+                ("timestamp", models.DateTimeField(auto_now_add=True)),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ledger",
+                        to="accounts.account",
+                    ),
+                ),
             ],
         ),
     ]
